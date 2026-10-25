@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kulakan UMKM</title>
+</head>
+
+<body>
+
+    <!-- ===== SIDEBAR / NAVIGASI ===== -->
+    <aside>
+        <h1>Kulakan</h1>
+        <p>Manajemen UMKM</p>
+
+        <!-- details = menu yang bisa dibuka/tutup tanpa CSS atau JavaScript (pengganti hamburger) -->
+        <details open>
+            <summary>Menu</summary>
+            <nav>
+                <ul>
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#stok">Data Stok</a></li>
+                    <li><a href="#analisis">Analisis Stok</a></li>
+                    <li><a href="#riwayat">Riwayat Transaksi</a></li>
+                    <li><a href="#pengaturan">Pengaturan</a></li>
+                </ul>
+            </nav>
+        </details>
+
+        <p>Sari Wulandari<br>Warung Berkah Sari</p>
+    </aside>
+
+    <main>
+
+        <!-- ===== HALAMAN 1: DASHBOARD ===== -->
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+            <p>Minggu, 25 Oktober 2026</p>
+
+            <h3>Ringkasan</h3>
+            <ul>
+                <li>Total produk: 14 jenis</li>
+                <li>Jumlah stok: 352 unit</li>
+                <li>Jumlah transaksi: 148 bulan ini</li>
+            </ul>
+
+            <h3>Riwayat transaksi terbaru</h3>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Waktu</th>
+                        <th>Pelanggan</th>
+                        <th>Metode</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TRX-1048</td>
+                        <td>25 Okt 2026, 15.42</td>
+                        <td>Bu Ratna Kusuma</td>
+                        <td>QRIS</td>
+                        <td>Rp 128.500</td>
+                        <td>Lunas</td>
+                    </tr>
+                    <tr>
+                        <td>TRX-1047</td>
+                        <td>25 Okt 2026, 14.18</td>
+                        <td>Pak Joko Santoso</td>
+                        <td>Tunai</td>
+                        <td>Rp 64.000</td>
+                        <td>Lunas</td>
+                    </tr>
+                    <tr>
+                        <td>TRX-1046</td>
+                        <td>25 Okt 2026, 12.55</td>
+                        <td>Warung Bu Tini</td>
+                        <td>Transfer</td>
+                        <td>Rp 381.000</td>
+                        <td>Menunggu</td>
+                    </tr>
+                    <tr>
+                        <td>TRX-1045</td>
+                        <td>25 Okt 2026, 11.07</td>
+                        <td>Dewi Anggraini</td>
+                        <td>QRIS</td>
+                        <td>Rp 81.000</td>
+                        <td>Lunas</td>
+                    </tr>
+                    <tr>
+                        <td>TRX-1044</td>
+                        <td>25 Okt 2026, 09.31</td>
+                        <td>Mas Hendra</td>
+                        <td>Tunai</td>
+                        <td>Rp 63.500</td>
+                        <td>Lunas</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><a href="#riwayat">Lihat semua transaksi</a></p>
+        </section>
+
+        <hr>
+
+        <!-- ===== HALAMAN 2: DATA STOK ===== -->
+        <section id="stok">
+            <h2>Data Stok</h2>
+
+            <!-- Bilah pencarian + tombol impor -->
+            <form>
+                <label for="cari-stok">Cari produk</label>
+                <input type="search" id="cari-stok" name="cari" placeholder="Cari nama produk atau kategori">
+                <button type="submit">Cari</button>
+                <button type="button">Impor stok</button>
+            </form>
+
+            <!-- Panel filter -->
+            <details open>
+                <summary>Filter</summary>
+                <form>
+                    <p>
+                        <label for="f-kategori">Kategori</label>
+                        <select id="f-kategori" name="kategori">
+                            <option value="">Semua kategori</option>
+                            <option>Sembako</option>
+                            <option>Camilan</option>
+                            <option>Minuman</option>
+                            <option>Bumbu</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="f-status">Status stok</label>
+                        <select id="f-status" name="status">
+                            <option value="">Semua status</option>
+                            <option>Aman</option>
+                            <option>Menipis</option>
+                            <option>Habis</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="f-urut">Urutkan</label>
+                        <select id="f-urut" name="urut">
+                            <option>Nama A-Z</option>
+                            <option>Stok paling sedikit</option>
+                            <option>Stok paling banyak</option>
+                            <option>Harga tertinggi</option>
+                        </select>
+                    </p>
+                    <button type="submit">Terapkan</button>
+                    <button type="reset">Atur ulang</button>
+                </form>
+            </details>
+
+            <p>Menampilkan 6 dari 14 produk</p>
+
+            <!-- Grid produk: tiap produk satu kartu (article) -->
+            <article>
+                <h3>Beras Pandan Wangi 5 kg</h3>
+                <p>Kategori: Sembako</p>
+                <p>Harga: Rp 72.000 / kemasan</p>
+                <p>Stok: 48 kemasan (Aman)</p>
+                <button type="button">Edit stok</button>
+            </article>
+
+            <article>
+                <h3>Minyak Goreng 2 L</h3>
+                <p>Kategori: Sembako</p>
+                <p>Harga: Rp 38.500 / pouch</p>
+                <p>Stok: 18 pouch (Menipis)</p>
+                <button type="button">Edit stok</button>
+            </article>
+
+            <article>
+                <h3>Tepung Terigu 1 kg</h3>
+                <p>Kategori: Sembako</p>
+                <p>Harga: Rp 14.000 / kemasan</p>
+                <p>Stok: 0 kemasan (Habis)</p>
+                <button type="button">Edit stok</button>
+            </article>
+
+            <article>
+                <h3>Keripik Tempe Original</h3>
+                <p>Kategori: Camilan</p>
+                <p>Harga: Rp 15.000 / bungkus</p>
+                <p>Stok: 40 bungkus (Aman)</p>
+                <button type="button">Edit stok</button>
+            </article>
+
+            <article>
+                <h3>Kopi Robusta Bubuk 200 g</h3>
+                <p>Kategori: Minuman</p>
+                <p>Harga: Rp 32.000 / bungkus</p>
+                <p>Stok: 26 bungkus (Aman)</p>
+                <button type="button">Edit stok</button>
+            </article>
+
+            <article>
+                <h3>Kecap Manis 600 ml</h3>
+                <p>Kategori: Bumbu</p>
+                <p>Harga: Rp 21.000 / botol</p>
+                <p>Stok: 7 botol (Menipis)</p>
+                <button type="button">Edit stok</button>
+            </article>
+
+            <!-- Form edit stok (muncul sebagai bagian halaman; dengan JavaScript bisa dijadikan popup) -->
+            <h3>Edit stok</h3>
+            <form>
+                <p>Produk: Minyak Goreng 2 L</p>
+                <p>
+                    <label for="edit-jumlah">Jumlah stok</label>
+                    <input type="number" id="edit-jumlah" name="jumlah" min="0" value="18">
+                </p>
+                <p>
+                    <label for="edit-alasan">Alasan perubahan</label>
+                    <select id="edit-alasan" name="alasan">
+                        <option>Barang masuk (kulakan)</option>
+                        <option>Koreksi hitung ulang</option>
+                        <option>Rusak atau kedaluwarsa</option>
+                    </select>
+                </p>
+                <button type="submit">Simpan stok</button>
+                <button type="reset">Batal</button>
+            </form>
+
+            <!-- Form impor stok -->
+            <h3>Impor stok</h3>
+            <form>
+                <p>
+                    <label for="impor-file">Berkas CSV</label>
+                    <input type="file" id="impor-file" name="berkas" accept=".csv">
+                </p>
+                <p>Kolom: nama, kategori, stok, harga, satuan</p>
+                <button type="submit">Impor sekarang</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- ===== MENU: ANALISIS STOK ===== -->
+        <section id="analisis">
+            <h2>Analisis Stok</h2>
+            <ul>
+                <li>Stok menipis: 3 produk</li>
+                <li>Stok habis: 1 produk</li>
+            </ul>
+            <h3>Stok per kategori</h3>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Jumlah unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sembako</td>
+                        <td>172</td>
+                    </tr>
+                    <tr>
+                        <td>Camilan</td>
+                        <td>63</td>
+                    </tr>
+                    <tr>
+                        <td>Minuman</td>
+                        <td>98</td>
+                    </tr>
+                    <tr>
+                        <td>Bumbu</td>
+                        <td>19</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- ===== MENU: RIWAYAT TRANSAKSI ===== -->
+        <section id="riwayat">
+            <h2>Riwayat Transaksi</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Waktu</th>
+                        <th>Pelanggan</th>
+                        <th>Metode</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TRX-1043</td>
+                        <td>24 Okt 2026, 19.46</td>
+                        <td>Kantin SDN 2 Wonokromo</td>
+                        <td>Transfer</td>
+                        <td>Rp 204.000</td>
+                        <td>Lunas</td>
+                    </tr>
+                    <tr>
+                        <td>TRX-1042</td>
+                        <td>24 Okt 2026, 17.20</td>
+                        <td>Bu Siti Aminah</td>
+                        <td>Tunai</td>
+                        <td>Rp 69.000</td>
+                        <td>Dibatalkan</td>
+                    </tr>
+                    <tr>
+                        <td>TRX-1041</td>
+                        <td>24 Okt 2026, 16.02</td>
+                        <td>Pak Agus Wibowo</td>
+                        <td>QRIS</td>
+                        <td>Rp 168.000</td>
+                        <td>Lunas</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- ===== HALAMAN 3: PENGATURAN ===== -->
+        <section id="pengaturan">
+            <h2>Pengaturan</h2>
+
+            <!-- Profil akun admin -->
+            <h3>Profil akun admin</h3>
+            <form>
+                <p>
+                    <label for="p-nama">Nama lengkap</label>
+                    <input type="text" id="p-nama" name="nama" value="Sari Wulandari">
+                </p>
+                <p>
+                    <label for="p-usaha">Nama usaha</label>
+                    <input type="text" id="p-usaha" name="usaha" value="Warung Berkah Sari">
+                </p>
+                <p>
+                    <label for="p-email">Email</label>
+                    <input type="email" id="p-email" name="email" value="sari@warungberkahsari.id">
+                </p>
+                <p>
+                    <label for="p-hp">Nomor telepon</label>
+                    <input type="tel" id="p-hp" name="hp" value="0812 3456 7890">
+                </p>
+                <button type="submit">Simpan profil</button>
+            </form>
+
+            <!-- Ubah foto profil -->
+            <h3>Foto profil</h3>
+            <form>
+                <p>
+                    <label for="foto">Pilih foto (JPG, PNG, WebP, maksimal 2 MB)</label>
+                    <input type="file" id="foto" name="foto" accept="image/png, image/jpeg, image/webp">
+                </p>
+                <button type="submit">Ganti foto</button>
+                <button type="button">Hapus foto</button>
+            </form>
+
+            <!-- Ubah kata sandi -->
+            <h3>Ubah kata sandi</h3>
+            <form>
+                <p>
+                    <label for="sandi-lama">Kata sandi saat ini</label>
+                    <input type="password" id="sandi-lama" name="sandi_lama" autocomplete="current-password">
+                </p>
+                <p>
+                    <label for="sandi-baru">Kata sandi baru</label>
+                    <input type="password" id="sandi-baru" name="sandi_baru" minlength="8" autocomplete="new-password">
+                </p>
+                <p>
+                    <label for="sandi-ulang">Ulangi kata sandi baru</label>
+                    <input type="password" id="sandi-ulang" name="sandi_ulang" minlength="8"
+                        autocomplete="new-password">
+                </p>
+                <button type="submit">Perbarui kata sandi</button>
+            </form>
+
+            <!-- Integrasi WhatsApp -->
+            <h3>Integrasi WhatsApp</h3>
+            <p>Status: Belum terhubung</p>
+            <form>
+                <p>
+                    <label for="wa-nomor">Nomor WhatsApp (awali 62)</label>
+                    <input type="tel" id="wa-nomor" name="wa_nomor" value="6281234567890">
+                </p>
+                <p>
+                    <label for="wa-pesan">Pesan pengingat</label><br>
+                    <textarea id="wa-pesan" name="wa_pesan" rows="3"
+                        cols="40">Halo, stok {produk} tinggal {sisa} {satuan}. Waktunya kulakan.</textarea>
+                </p>
+                <p>
+                    <label><input type="checkbox" name="notif_stok" checked> Pengingat stok menipis</label><br>
+                    <label><input type="checkbox" name="notif_harian"> Ringkasan harian pukul 21.00</label>
+                </p>
+                <button type="submit">Hubungkan</button>
+            </form>
+            <p><a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer">Buka chat di WhatsApp</a>
+            </p>
+        </section>
+
+    </main>
+
+</body>
+
+</html>
