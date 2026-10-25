@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasir / Transaksi Baru - Sistem Manajemen UMKM</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        body {
+            display: flex;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        aside {
+            width: 240px;
+            background-color: #dcdcdc;
+            height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar-menu h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .sidebar-menu ul {
+            list-style: none;
+        }
+
+        .sidebar-menu li {
+            padding: 10px 12px;
+            margin-bottom: 8px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #e6e6e6;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .content {
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 20px;
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <aside>
+        <div class="sidebar-menu">
+            <h2>UMKM System</h2>
+            <ul>
+                <li><a href="index.html" style="text-decoration:none; color:inherit;">Dashboard</a></li>
+                <li><a href="transaksi.html" style="text-decoration:none; color:inherit;">Riwayat Transaksi</a></li>
+            </ul>
+        </div>
+        <div>Admin UMKM</div>
+    </aside>
+    <main>
+        <header>
+            <h1>Form Kasir & Penjualan</h1>
+        </header>
+        <div class="content">
+            <section class="card">
+                <h2>Catat Penjualan Baru</h2>
+                <p style="margin-bottom: 15px; font-size: 13px; color: #666;">Masukkan data pesanan dari pembeli.</p>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="pelanggan">Nama Pelanggan:</label>
+                        <input type="text" id="pelanggan" name="pelanggan" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="produk">Pilih Produk:</label>
+                        <select id="produk" name="produk">
+                            <option value="1">Ayam Bakar Madu - Rp 25.000</option>
+                            <option value="2">Es Teh Manis - Rp 5.000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="jumlah">Jumlah Beli:</label>
+                        <input type="number" id="jumlah" name="jumlah" value="1" required>
+                    </div>
+                    <button type="submit" class="btn">Proses Pembayaran</button>
+                    <a href="transaksi.html" style="margin-left: 10px; color: #555; text-decoration: none;">Kembali</a>
+                </form>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>

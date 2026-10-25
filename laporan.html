@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Keuangan - Sistem Manajemen UMKM</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        body {
+            display: flex;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        aside {
+            width: 240px;
+            background-color: #dcdcdc;
+            height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar-menu h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .sidebar-menu ul {
+            list-style: none;
+        }
+
+        .sidebar-menu li {
+            padding: 10px 12px;
+            margin-bottom: 8px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .sidebar-menu li.active {
+            background-color: #c0c0c0;
+            font-weight: bold;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #e6e6e6;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .content {
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 20px;
+        }
+
+        .btn {
+            padding: 8px 15px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <aside>
+        <div class="sidebar-menu">
+            <h2>UMKM System</h2>
+            <ul>
+                <li><a href="index.html" style="text-decoration:none; color:inherit;">Dashboard</a></li>
+                <li><a href="stok.html" style="text-decoration:none; color:inherit;">Data Stok</a></li>
+                <li class="active">Laporan Keuangan</li>
+                <li><a href="pengaturan.html" style="text-decoration:none; color:inherit;">Pengaturan</a></li>
+            </ul>
+        </div>
+        <div>Admin UMKM</div>
+    </aside>
+    <main>
+        <header>
+            <h1>Laporan Rekapitulasi Keuangan</h1>
+        </header>
+        <div class="content">
+            <section class="card">
+                <h2>Ringkasan Pendapatan Bulanan</h2>
+                <p style="margin: 10px 0; font-size: 14px; color: #555;">Total Pemasukan Bulan Ini: <strong>Rp
+                        4.500.000</strong></p>
+                <p style="margin: 10px 0; font-size: 14px; color: #555;">Total Pengeluaran Stok: <strong>Rp
+                        1.800.000</strong></p>
+                <hr style="margin: 15px 0; border: 0; border-top: 1px solid #ccc;">
+                <p style="font-size: 15px; font-weight: bold;">Keuntungan Bersih: Rp 2.700.000</p>
+                <a href="#" class="btn">Unduh Laporan (PDF)</a>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>
