@@ -4,187 +4,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Stok - Sistem Manajemen UMKM</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: sans-serif;
-        }
-
-        body {
-            display: flex;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        aside {
-            width: 240px;
-            background-color: #dcdcdc;
-            height: 100vh;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .sidebar-menu h2 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .sidebar-menu ul {
-            list-style: none;
-        }
-
-        .sidebar-menu li {
-            padding: 10px 12px;
-            margin-bottom: 8px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .sidebar-menu li.active {
-            background-color: #c0c0c0;
-            font-weight: bold;
-        }
-
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        header {
-            background-color: #e6e6e6;
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .content {
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .card {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        th,
-        td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: left;
-            font-size: 14px;
-        }
-
-        th {
-            background-color: #eee;
-        }
-
-        .form-inline {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .form-inline input {
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            flex: 1;
-        }
-
-        .btn {
-            padding: 8px 15px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-    </style>
+    <meta name="description" content="Daftar stok barang dagangan dengan pencarian dan filter.">
+    <title>Data Stok - StokKu</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-    <aside>
-        <div class="sidebar-menu">
-            <h2>UMKM System</h2>
-            <ul>
-                <li><a href="index.html" style="text-decoration:none; color:inherit;">Dashboard</a></li>
-                <li class="active">Data Stok</li>
-                <li><a href="analisis.html" style="text-decoration:none; color:inherit;">Analisis Stok</a></li>
-                <li><a href="transaksi.html" style="text-decoration:none; color:inherit;">Riwayat Transaksi</a></li>
-                <li><a href="pengaturan.html" style="text-decoration:none; color:inherit;">Pengaturan</a></li>
-            </ul>
-        </div>
-        <div>Admin UMKM</div>
-    </aside>
-    <main>
-        <header>
-            <h1>Data Stok Barang</h1>
-        </header>
-        <div class="content">
-            <section class="card">
-                <h2>Kelola Inventaris Produk</h2>
-                <p style="margin: 10px 0; color: #666;">Daftar seluruh ketersediaan barang dagangan secara real-time.
-                </p>
-                <div class="form-inline">
-                    <input type="text" placeholder="Cari nama produk...">
-                    <button class="btn" type="button">Cari</button>
-                    <a href="tambah-produk.html" class="btn">+ Tambah Produk</a>
+<body data-page="stok">
+    <a class="sr-only" href="#konten">Lewati ke konten</a>
+    <div class="app">
+        <aside class="sidebar" id="sidebar"></aside>
+        <div class="main">
+            <header class="topbar" id="topbar"></header>
+            <main class="content" id="konten">
+                <div class="page-head" style="display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap">
+                    <div>
+                        <h1>Data Stok Barang</h1>
+                        <p>Daftar ketersediaan barang dagangan, terbarui langsung setiap ada perubahan.</p>
+                    </div>
+                    <a class="btn" href="tambah_produk.html">+ Tambah Produk</a>
                 </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Produk</th>
-                            <th>Kategori</th>
-                            <th>Harga</th>
-                            <th>Stok</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Ayam Bakar Madu</td>
-                            <td>Makanan</td>
-                            <td>Rp 25.000</td>
-                            <td>15</td>
-                            <td><a href="#" style="color: blue;">Edit</a></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Es Teh Manis</td>
-                            <td>Minuman</td>
-                            <td>Rp 5.000</td>
-                            <td>40</td>
-                            <td><a href="#" style="color: blue;">Edit</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
+
+                <details class="filter-panel" id="filter-panel" open>
+                    <summary>Filter</summary>
+                    <div class="filter-grid" id="filter-grid"></div>
+                    <div class="filter-actions">
+                        <button type="button" class="btn btn-ghost btn-sm" id="btn-reset">Reset filter</button>
+                        <span class="result-info" id="result-info" aria-live="polite"></span>
+                    </div>
+                </details>
+
+                <section class="product-grid" id="grid" aria-label="Daftar produk" aria-busy="true"></section>
+            </main>
         </div>
-    </main>
+    </div>
+
+    <!-- Modal Edit Stok -->
+    <div class="modal-overlay" id="modal-edit">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="edit-judul">
+            <h2 id="edit-judul">Edit Stok</h2>
+            <p class="sub" id="edit-nama"></p>
+            <form id="form-edit" novalidate>
+                <div class="field">
+                    <label for="edit-stok">Jumlah stok</label>
+                    <div class="stepper">
+                        <button type="button" id="stok-min" aria-label="Kurangi stok">&minus;</button>
+                        <input type="number" id="edit-stok" name="stok" inputmode="numeric" min="0" step="1">
+                        <button type="button" id="stok-plus" aria-label="Tambah stok">+</button>
+                    </div>
+                    <p class="field-error"></p>
+                </div>
+                <div class="form-row">
+                    <div class="field">
+                        <label for="edit-harga">Harga (Rp)</label>
+                        <input type="number" id="edit-harga" name="harga" inputmode="numeric" min="0" step="1">
+                        <p class="field-error"></p>
+                    </div>
+                    <div class="field">
+                        <label for="edit-min">Batas stok menipis</label>
+                        <input type="number" id="edit-min" name="stokMinimum" inputmode="numeric" min="0" step="1">
+                        <p class="field-error"></p>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-danger btn-sm" id="btn-hapus" style="margin-right:auto">Hapus</button>
+                    <button type="button" class="btn btn-ghost" data-close>Batal</button>
+                    <button type="submit" class="btn" id="btn-simpan">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/store.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/stok.js"></script>
 </body>
 
 </html>

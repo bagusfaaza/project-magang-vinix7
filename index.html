@@ -4,209 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Sistem Manajemen UMKM</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: sans-serif;
-        }
-
-        body {
-            display: flex;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        /* Sidebar */
-        aside {
-            width: 240px;
-            background-color: #dcdcdc;
-            height: 100vh;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .sidebar-menu h2 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .sidebar-menu ul {
-            list-style: none;
-        }
-
-        .sidebar-menu li {
-            padding: 10px 12px;
-            margin-bottom: 8px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .sidebar-menu li.active {
-            background-color: #c0c0c0;
-            font-weight: bold;
-        }
-
-        .admin-section {
-            padding: 10px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            text-align: center;
-        }
-
-        /* Main Content */
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        header {
-            background-color: #e6e6e6;
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #ccc;
-        }
-
-        header span {
-            margin-right: 15px;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        .content {
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        /* Cards Section */
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .stat-card {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 20px;
-            text-align: center;
-            height: 120px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .stat-card .title {
-            font-size: 14px;
-            color: #666;
-        }
-
-        .stat-card .box-visual {
-            background-color: #eee;
-            border: 1px dashed #999;
-            flex: 1;
-            margin-top: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #777;
-            font-size: 12px;
-        }
-
-        /* Table Section */
-        .table-section {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 20px;
-        }
-
-        .table-section h2 {
-            font-size: 16px;
-            margin-bottom: 15px;
-            text-align: center;
-            font-weight: normal;
-        }
-
-        .table-box {
-            background-color: #eee;
-            border: 1px dashed #999;
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #777;
-        }
-    </style>
+    <meta name="description" content="StokKu - pencatatan stok UMKM secara real time.">
+    <title>Dashboard - StokKu</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body data-page="dashboard">
+    <a class="sr-only" href="#konten">Lewati ke konten</a>
+    <div class="app">
+        <aside class="sidebar" id="sidebar"></aside>
+        <div class="main">
+            <header class="topbar" id="topbar"></header>
+            <main class="content" id="konten">
+                <div class="page-head">
+                    <h1>Dashboard</h1>
+                    <p>Ringkasan stok dan penjualan toko kamu hari ini.</p>
+                </div>
 
-    <!-- Sidebar Navigasi -->
-    <aside>
-        <div class="sidebar-menu">
-            <h2>Dashboard - Agung</h2>
-            <ul>
-                <li class="active">Dashboard</li>
-                <li>Data Stok</li>
-                <li>Analisis Stok</li>
-                <li>Riwayat Transaksi</li>
-                <li>Pengaturan</li>
-            </ul>
+                <section class="stats" id="stats" aria-label="Ringkasan stok" aria-live="polite"></section>
+
+                <section class="card" aria-labelledby="judul-riwayat">
+                    <h2 id="judul-riwayat">Tabel Riwayat Transaksi</h2>
+                    <p class="sub">5 transaksi terbaru. <a href="transaksi.html">Lihat semua</a></p>
+                    <div class="table-wrap" id="tabel-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tanggal</th>
+                                    <th>Pelanggan</th>
+                                    <th>Item</th>
+                                    <th class="num">Total</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabel-body"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
         </div>
-        <div class="admin-section">
-            Admin
-        </div>
-    </aside>
+    </div>
 
-    <!-- Konten Utama -->
-    <main>
-        <header>
-            <span>&#9776;</span>
-            <span>&#8962;</span>
-            <h1 style="font-size: 16px; font-weight: normal; margin-left: 10px;">Nama Web</h1>
-        </header>
-
-        <div class="content">
-            <!-- Statistik Atas -->
-            <div class="stats-container">
-                <div class="stat-card">
-                    <span class="title">Total Produk</span>
-                    <div class="box-visual">[ Area Grafik / Angka ]</div>
-                </div>
-                <div class="stat-card">
-                    <span class="title">Jumlah Produk</span>
-                    <div class="box-visual">[ Area Grafik / Angka ]</div>
-                </div>
-                <div class="stat-card">
-                    <span class="title">Jumlah Transaksi</span>
-                    <div class="box-visual">[ Area Grafik / Angka ]</div>
-                </div>
-            </div>
-
-            <!-- Tabel Riwayat Transaksi Bawah -->
-            <section class="table-section">
-                <h2>Tabel Riwayat Transaksi</h2>
-                <div class="table-box">
-                    [ Konten Tabel Transaksi UMKM ]
-                </div>
-            </section>
-        </div>
-    </main>
-
+    <script src="js/store.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/dashboard.js"></script>
 </body>
 
 </html>

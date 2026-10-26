@@ -4,151 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Produk - Sistem Manajemen UMKM</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: sans-serif;
-        }
-
-        body {
-            display: flex;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        aside {
-            width: 240px;
-            background-color: #dcdcdc;
-            height: 100vh;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .sidebar-menu h2 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .sidebar-menu ul {
-            list-style: none;
-        }
-
-        .sidebar-menu li {
-            padding: 10px 12px;
-            margin-bottom: 8px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        header {
-            background-color: #e6e6e6;
-            padding: 15px 20px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .content {
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .card {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 20px;
-            max-width: 600px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-    </style>
+    <meta name="description" content="Form untuk menambah produk baru ke daftar stok.">
+    <title>Tambah Produk - StokKu</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-    <aside>
-        <div class="sidebar-menu">
-            <h2>UMKM System</h2>
-            <ul>
-                <li><a href="index.html" style="text-decoration:none; color:inherit;">Dashboard</a></li>
-                <li><a href="stok.html" style="text-decoration:none; color:inherit;">Data Stok</a></li>
-            </ul>
+<body data-page="stok">
+    <a class="sr-only" href="#konten">Lewati ke konten</a>
+    <div class="app">
+        <aside class="sidebar" id="sidebar"></aside>
+        <div class="main">
+            <header class="topbar" id="topbar"></header>
+            <main class="content" id="konten">
+                <div class="page-head">
+                    <h1>Tambah Produk Baru</h1>
+                    <p>Isi detail produk, lalu simpan ke daftar stok.</p>
+                </div>
+
+                <section class="card form-card" aria-labelledby="judul-form">
+                    <h2 id="judul-form">Detail Produk</h2>
+                    <p class="sub">Semua kolom bertanda * wajib diisi.</p>
+
+                    <form id="form-produk" novalidate>
+                        <div class="field">
+                            <label for="nama">Nama produk *</label>
+                            <input type="text" id="nama" name="nama" maxlength="60" autocomplete="off" placeholder="Contoh: Ayam Geprek">
+                            <p class="field-error"></p>
+                        </div>
+
+                        <div class="field">
+                            <label for="kategori">Kategori *</label>
+                            <select id="kategori" name="kategori">
+                                <option value="">Pilih kategori</option>
+                                <option value="Makanan">Makanan</option>
+                                <option value="Minuman">Minuman</option>
+                                <option value="Lainnya">Lainnya</option>
+                            </select>
+                            <p class="field-error"></p>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="field">
+                                <label for="harga">Harga (Rp) *</label>
+                                <input type="number" id="harga" name="harga" inputmode="numeric" min="0" step="1" placeholder="15000">
+                                <p class="field-error"></p>
+                            </div>
+                            <div class="field">
+                                <label for="stok">Jumlah stok awal *</label>
+                                <input type="number" id="stok" name="stok" inputmode="numeric" min="0" step="1" placeholder="20">
+                                <p class="field-error"></p>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="min">Batas stok menipis <span class="opt">(opsional, bawaan 5)</span></label>
+                            <input type="number" id="min" name="stokMinimum" inputmode="numeric" min="0" step="1" placeholder="5">
+                            <p class="field-help">Produk ditandai "Menipis" saat stok sama dengan atau di bawah angka ini.</p>
+                            <p class="field-error"></p>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn" id="btn-simpan">Simpan Produk</button>
+                            <a class="btn btn-ghost" href="stok.html">Batal</a>
+                        </div>
+                    </form>
+                </section>
+            </main>
         </div>
-        <div>Admin UMKM</div>
-    </aside>
-    <main>
-        <header>
-            <h1>Form Tambah Produk Baru</h1>
-        </header>
-        <div class="content">
-            <section class="card">
-                <h2>Input Detail Produk</h2>
-                <p style="margin-bottom: 15px; font-size: 13px; color: #666;">Silakan masukkan informasi produk baru ke
-                    sistem.</p>
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <label for="nama">Nama Produk:</label>
-                        <input type="text" id="nama" name="nama" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="kategori">Kategori:</label>
-                        <select id="kategori" name="kategori">
-                            <option value="makanan">Makanan</option>
-                            <option value="minuman">Minuman</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="harga">Harga (Rp):</label>
-                        <input type="number" id="harga" name="harga" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="stok">Jumlah Stok Awal:</label>
-                        <input type="number" id="stok" name="stok" required>
-                    </div>
-                    <button type="submit" class="btn">Simpan Produk</button>
-                    <a href="stok.html" style="margin-left: 10px; color: #555; text-decoration: none;">Kembali</a>
-                </form>
-            </section>
-        </div>
-    </main>
+    </div>
+
+    <script src="js/store.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/tambah_produk.js"></script>
 </body>
 
 </html>
