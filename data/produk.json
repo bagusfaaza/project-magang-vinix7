@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "nama": "Ayam Bakar Madu",
+    "kategori": "Makanan",
+    "harga": 25000,
+    "stok": 15,
+    "stokMinimum": 5,
+    "gambar": "assets/images/ayam-bakar.jpg"
+  },
+  {
+    "id": 2,
+    "nama": "Ayam Goreng Kremes",
+    "kategori": "Makanan",
+    "harga": 23000,
+    "stok": 12,
+    "stokMinimum": 5,
+    "gambar": "assets/images/ayam-kremes.jpg"
+  },
+  {
+    "id": 3,
+    "nama": "Ayam Karage",
+    "kategori": "Makanan",
+    "harga": 20000,
+    "stok": 4,
+    "stokMinimum": 5,
+    "gambar": "assets/images/ayam-karage.jpg"
+  },
+  {
+    "id": 4,
+    "nama": "Ayam Bumbu Laos",
+    "kategori": "Makanan",
+    "harga": 24000,
+    "stok": 9,
+    "stokMinimum": 5,
+    "gambar": "assets/images/ayam-laos.jpg"
+  },
+  {
+    "id": 5,
+    "nama": "Ayam Kampus",
+    "kategori": "Makanan",
+    "harga": 15000,
+    "stok": 0,
+    "stokMinimum": 5,
+    "gambar": "assets/images/ayam-kampus.jpg"
+  },
+  {
+    "id": 6,
+    "nama": "Nasi Goreng Spesial",
+    "kategori": "Makanan",
+    "harga": 18000,
+    "stok": 20,
+    "stokMinimum": 8,
+    "gambar": "assets/images/nasi-goreng.jpg"
+  },
+  {
+    "id": 7,
+    "nama": "Bubur Ayam",
+    "kategori": "Makanan",
+    "harga": 14000,
+    "stok": 3,
+    "stokMinimum": 5,
+    "gambar": "assets/images/bubur-ayam.jpg"
+  },
+  {
+    "id": 8,
+    "nama": "Nasi Ayam",
+    "kategori": "Makanan",
+    "harga": 17000,
+    "stok": 18,
+    "stokMinimum": 8,
+    "gambar": "assets/images/nasi-ayam.jpg"
+  },
+  {
+    "id": 9,
+    "nama": "Es Teh Manis",
+    "kategori": "Minuman",
+    "harga": 5000,
+    "stok": 40,
+    "stokMinimum": 15,
+    "gambar": "assets/images/es-teh.jpg"
+  },
+  {
+    "id": 10,
+    "nama": "Es Jeruk",
+    "kategori": "Minuman",
+    "harga": 7000,
+    "stok": 25,
+    "stokMinimum": 10,
+    "gambar": "assets/images/es-jeruk.jpg"
+  },
+  {
+    "id": 11,
+    "nama": "Kopi Hitam",
+    "kategori": "Minuman",
+    "harga": 8000,
+    "stok": 6,
+    "stokMinimum": 10,
+    "gambar": "assets/images/kopi-hitam.jpg"
+  },
+  {
+    "id": 12,
+    "nama": "Paket Aneka Minuman",
+    "kategori": "Minuman",
+    "harga": 30000,
+    "stok": 11,
+    "stokMinimum": 5,
+    "gambar": "assets/images/aneka-minuman.jpg"
+  }
+]

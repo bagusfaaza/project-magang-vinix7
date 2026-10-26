@@ -1,0 +1,6 @@
+# rahasia & lingkungan lokal (jangan pernah di-upload ke GitHub publik)
+.env
+.env.*
+!.env.example
+node_modules/
+.DS_Store

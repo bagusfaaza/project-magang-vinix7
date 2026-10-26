@@ -1,0 +1,212 @@
+[
+  {
+    "id": "TRX-010",
+    "tanggal": "2026-10-26",
+    "pelanggan": "Siti Aminah",
+    "items": [
+      {
+        "produkId": 5,
+        "nama": "Ayam Kampus",
+        "harga": 15000,
+        "jumlah": 1
+      },
+      {
+        "produkId": 9,
+        "nama": "Es Teh Manis",
+        "harga": 5000,
+        "jumlah": 3
+      },
+      {
+        "produkId": 3,
+        "nama": "Ayam Karage",
+        "harga": 20000,
+        "jumlah": 3
+      }
+    ],
+    "total": 90000,
+    "status": "Belum Lunas"
+  },
+  {
+    "id": "TRX-009",
+    "tanggal": "2026-10-26",
+    "pelanggan": "Budi Santoso",
+    "items": [
+      {
+        "produkId": 3,
+        "nama": "Ayam Karage",
+        "harga": 20000,
+        "jumlah": 1
+      },
+      {
+        "produkId": 5,
+        "nama": "Ayam Kampus",
+        "harga": 15000,
+        "jumlah": 3
+      },
+      {
+        "produkId": 7,
+        "nama": "Bubur Ayam",
+        "harga": 14000,
+        "jumlah": 1
+      }
+    ],
+    "total": 79000,
+    "status": "Lunas"
+  },
+  {
+    "id": "TRX-008",
+    "tanggal": "2026-10-26",
+    "pelanggan": "Lestari Dewi",
+    "items": [
+      {
+        "produkId": 4,
+        "nama": "Ayam Bumbu Laos",
+        "harga": 24000,
+        "jumlah": 1
+      }
+    ],
+    "total": 24000,
+    "status": "Lunas"
+  },
+  {
+    "id": "TRX-007",
+    "tanggal": "2026-10-25",
+    "pelanggan": "Joko Prasetyo",
+    "items": [
+      {
+        "produkId": 11,
+        "nama": "Kopi Hitam",
+        "harga": 8000,
+        "jumlah": 3
+      },
+      {
+        "produkId": 10,
+        "nama": "Es Jeruk",
+        "harga": 7000,
+        "jumlah": 3
+      },
+      {
+        "produkId": 1,
+        "nama": "Ayam Bakar Madu",
+        "harga": 25000,
+        "jumlah": 2
+      }
+    ],
+    "total": 95000,
+    "status": "Lunas"
+  },
+  {
+    "id": "TRX-006",
+    "tanggal": "2026-10-25",
+    "pelanggan": "Maya Putri",
+    "items": [
+      {
+        "produkId": 1,
+        "nama": "Ayam Bakar Madu",
+        "harga": 25000,
+        "jumlah": 1
+      },
+      {
+        "produkId": 10,
+        "nama": "Es Jeruk",
+        "harga": 7000,
+        "jumlah": 1
+      }
+    ],
+    "total": 32000,
+    "status": "Lunas"
+  },
+  {
+    "id": "TRX-005",
+    "tanggal": "2026-10-25",
+    "pelanggan": "Ahmad Fauzi",
+    "items": [
+      {
+        "produkId": 2,
+        "nama": "Ayam Goreng Kremes",
+        "harga": 23000,
+        "jumlah": 1
+      },
+      {
+        "produkId": 4,
+        "nama": "Ayam Bumbu Laos",
+        "harga": 24000,
+        "jumlah": 3
+      }
+    ],
+    "total": 95000,
+    "status": "Belum Lunas"
+  },
+  {
+    "id": "TRX-004",
+    "tanggal": "2026-10-24",
+    "pelanggan": "Dedi Kurniawan",
+    "items": [
+      {
+        "produkId": 2,
+        "nama": "Ayam Goreng Kremes",
+        "harga": 23000,
+        "jumlah": 2
+      }
+    ],
+    "total": 46000,
+    "status": "Lunas"
+  },
+  {
+    "id": "TRX-003",
+    "tanggal": "2026-10-24",
+    "pelanggan": "Rina Wulandari",
+    "items": [
+      {
+        "produkId": 10,
+        "nama": "Es Jeruk",
+        "harga": 7000,
+        "jumlah": 3
+      },
+      {
+        "produkId": 1,
+        "nama": "Ayam Bakar Madu",
+        "harga": 25000,
+        "jumlah": 1
+      }
+    ],
+    "total": 46000,
+    "status": "Lunas"
+  },
+  {
+    "id": "TRX-002",
+    "tanggal": "2026-10-24",
+    "pelanggan": "Siti Aminah",
+    "items": [
+      {
+        "produkId": 9,
+        "nama": "Es Teh Manis",
+        "harga": 5000,
+        "jumlah": 1
+      }
+    ],
+    "total": 5000,
+    "status": "Lunas"
+  },
+  {
+    "id": "TRX-001",
+    "tanggal": "2026-10-23",
+    "pelanggan": "Budi Santoso",
+    "items": [
+      {
+        "produkId": 3,
+        "nama": "Ayam Karage",
+        "harga": 20000,
+        "jumlah": 3
+      },
+      {
+        "produkId": 7,
+        "nama": "Bubur Ayam",
+        "harga": 14000,
+        "jumlah": 1
+      }
+    ],
+    "total": 74000,
+    "status": "Lunas"
+  }
+]

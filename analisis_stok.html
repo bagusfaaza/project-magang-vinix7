@@ -4,136 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analisis Stok - Sistem Manajemen UMKM</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: sans-serif;
-        }
-
-        body {
-            display: flex;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        aside {
-            width: 240px;
-            background-color: #dcdcdc;
-            height: 100vh;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .sidebar-menu h2 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .sidebar-menu ul {
-            list-style: none;
-        }
-
-        .sidebar-menu li {
-            padding: 10px 12px;
-            margin-bottom: 8px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .sidebar-menu li.active {
-            background-color: #c0c0c0;
-            font-weight: bold;
-        }
-
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        header {
-            background-color: #e6e6e6;
-            padding: 15px 20px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .content {
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .card {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 20px;
-        }
-
-        .box-visual {
-            background-color: #eee;
-            border: 1px dashed #999;
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 10px;
-            color: #777;
-        }
-    </style>
+    <meta name="description" content="Analisis pergerakan stok dan barang yang hampir habis.">
+    <title>Analisis Stok - StokKu</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-    <aside>
-        <div class="sidebar-menu">
-            <h2>UMKM System</h2>
-            <ul>
-                <li><a href="index.html" style="text-decoration:none; color:inherit;">Dashboard</a></li>
-                <li><a href="stok.html" style="text-decoration:none; color:inherit;">Data Stok</a></li>
-                <li class="active">Analisis Stok</li>
-                <li><a href="transaksi.html" style="text-decoration:none; color:inherit;">Riwayat Transaksi</a></li>
-                <li><a href="pengaturan.html" style="text-decoration:none; color:inherit;">Pengaturan</a></li>
-            </ul>
+<body data-page="analisis">
+    <a class="sr-only" href="#konten">Lewati ke konten</a>
+    <div class="app">
+        <aside class="sidebar" id="sidebar"></aside>
+        <div class="main">
+            <header class="topbar" id="topbar"></header>
+            <main class="content" id="konten">
+                <div class="page-head">
+                    <h1>Analisis &amp; Pergerakan Stok</h1>
+                    <p>Lihat barang paling laku dan yang perlu segera diisi ulang.</p>
+                </div>
+
+                <div id="analisis-area" aria-live="polite">
+                    <section class="stats" id="stats"></section>
+                    <div class="grid-2">
+                        <section class="card" aria-labelledby="judul-laku">
+                            <h2 id="judul-laku">Perputaran Barang</h2>
+                            <p class="sub">Jumlah unit terjual per produk dari seluruh transaksi.</p>
+                            <div id="chart"></div>
+                        </section>
+                        <section class="card" aria-labelledby="judul-hampir">
+                            <h2 id="judul-hampir">Barang Hampir Habis</h2>
+                            <p class="sub">Stok sama dengan atau di bawah batas minimum.</p>
+                            <ul class="low-list" id="low-list"></ul>
+                        </section>
+                    </div>
+                </div>
+            </main>
         </div>
-        <div>Admin UMKM</div>
-    </aside>
-    <main>
-        <header>
-            <h1>Analisis & Pergerakan Stok</h1>
-        </header>
-        <div class="content">
-            <div class="grid">
-                <section class="card">
-                    <h2>Grafik Perputaran Barang</h2>
-                    <p style="font-size: 13px; color: #666; margin-top: 5px;">Statistik barang paling cepat terjual
-                        bulan ini.</p>
-                    <div class="box-visual">[ Visualisasi Grafik Batang ]</div>
-                </section>
-                <section class="card">
-                    <h2>Barang Hampir Habis</h2>
-                    <p style="font-size: 13px; color: #666; margin-top: 5px;">Daftar inventaris dengan batas stok
-                        minimum.</p>
-                    <ul style="margin-top: 15px; padding-left: 20px; font-size: 14px;">
-                        <li>Minyak Goreng (Sisa 2 Pcs)</li>
-                        <li>Kecap Manis (Sisa 3 Pcs)</li>
-                    </ul>
-                </section>
-            </div>
-        </div>
-    </main>
+    </div>
+
+    <script src="js/store.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/analisis.js"></script>
 </body>
 
 </html>
