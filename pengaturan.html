@@ -4,145 +4,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pengaturan - Sistem Manajemen UMKM</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: sans-serif;
-        }
-
-        body {
-            display: flex;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        aside {
-            width: 240px;
-            background-color: #dcdcdc;
-            height: 100vh;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .sidebar-menu h2 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .sidebar-menu ul {
-            list-style: none;
-        }
-
-        .sidebar-menu li {
-            padding: 10px 12px;
-            margin-bottom: 8px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .sidebar-menu li.active {
-            background-color: #c0c0c0;
-            font-weight: bold;
-        }
-
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        header {
-            background-color: #e6e6e6;
-            padding: 15px 20px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .content {
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .card {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 20px;
-            max-width: 600px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-    </style>
+    <meta name="description" content="Pengaturan profil admin dan toko.">
+    <title>Pengaturan - StokKu</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-    <aside>
-        <div class="sidebar-menu">
-            <h2>UMKM System</h2>
-            <ul>
-                <li><a href="index.html" style="text-decoration:none; color:inherit;">Dashboard</a></li>
-                <li><a href="stok.html" style="text-decoration:none; color:inherit;">Data Stok</a></li>
-                <li><a href="laporan.html" style="text-decoration:none; color:inherit;">Laporan Keuangan</a></li>
-                <li class="active">Pengaturan</li>
-            </ul>
-        </div>
-        <div>Admin UMKM</div>
-    </aside>
-    <main>
-        <header>
-            <h1>Pengaturan Akun & Profil UMKM</h1>
-        </header>
-        <div class="content">
-            <section class="card">
-                <h2>Informasi Toko</h2>
-                <p style="margin-bottom: 15px; font-size: 13px; color: #666;">Perbarui informasi profil dan kontak
-                    bantuan WhatsApp.</p>
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <label for="namatoko">Nama Usaha / Toko:</label>
-                        <input type="text" id="namatoko" name="namatoko" value="Warung UMKM Berkah">
+<body data-page="pengaturan">
+    <a class="sr-only" href="#konten">Lewati ke konten</a>
+    <div class="app">
+        <aside class="sidebar" id="sidebar"></aside>
+        <div class="main">
+            <header class="topbar" id="topbar"></header>
+            <main class="content" id="konten">
+                <div class="page-head">
+                    <h1>Pengaturan Akun &amp; Profil</h1>
+                    <p>Kelola profil admin dan informasi toko.</p>
+                </div>
+
+                <section class="card form-card" aria-labelledby="judul-profil">
+                    <h2 id="judul-profil">Profil dan Akun</h2>
+                    <p class="sub" id="ringkas-profil"></p>
+                    <div class="settings-list">
+                        <button type="button" class="setting-item" data-open="profil">Edit Profil Admin <span class="chev" aria-hidden="true">&rsaquo;</span></button>
+                        <button type="button" class="setting-item" data-open="sandi">Ubah Kata Sandi <span class="chev" aria-hidden="true">&rsaquo;</span></button>
+                        <button type="button" class="setting-item" id="btn-foto">Ubah Foto Profil <span class="chev" aria-hidden="true">&rsaquo;</span></button>
+                        <button type="button" class="setting-item" data-open="wa">Hubungkan ke WhatsApp <span class="chev" aria-hidden="true">&rsaquo;</span></button>
                     </div>
-                    <div class="form-group">
-                        <label for="whatsapp">Nomor WhatsApp Bantuan:</label>
-                        <input type="text" id="whatsapp" name="whatsapp" value="6281234567890">
-                    </div>
-                    <button type="submit" class="btn">Simpan Pengaturan</button>
-                </form>
-            </section>
+                    <input type="file" id="file-foto" accept="image/png,image/jpeg,image/webp" hidden>
+                </section>
+
+                <section class="card form-card" style="margin-top:16px" aria-labelledby="judul-demo">
+                    <h2 id="judul-demo">Data Demo</h2>
+                    <p class="sub">Data tersimpan di browser ini. Kembalikan ke data contoh awal kapan saja, misalnya sebelum usability testing.</p>
+                    <button type="button" class="btn btn-ghost" id="btn-reset-data">Kembalikan data contoh</button>
+                </section>
+            </main>
         </div>
-    </main>
+    </div>
+
+    <!-- Modal Edit Profil -->
+    <div class="modal-overlay" id="modal-profil">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mp-judul">
+            <h2 id="mp-judul">Edit Profil Admin</h2>
+            <p class="sub">Nama dan kontak yang tampil di aplikasi.</p>
+            <form id="form-profil" novalidate>
+                <div class="field">
+                    <label for="p-nama">Nama admin *</label>
+                    <input type="text" id="p-nama" maxlength="40" autocomplete="name">
+                    <p class="field-error"></p>
+                </div>
+                <div class="field">
+                    <label for="p-email">Email *</label>
+                    <input type="email" id="p-email" maxlength="80" autocomplete="email">
+                    <p class="field-error"></p>
+                </div>
+                <div class="field">
+                    <label for="p-toko">Nama usaha / toko *</label>
+                    <input type="text" id="p-toko" maxlength="60">
+                    <p class="field-error"></p>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-ghost" data-close>Batal</button>
+                    <button type="submit" class="btn" id="btn-simpan-profil">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Ubah Kata Sandi -->
+    <div class="modal-overlay" id="modal-sandi">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="ms-judul">
+            <h2 id="ms-judul">Ubah Kata Sandi</h2>
+            <p class="sub">Prototipe ini belum punya sistem login, jadi kata sandi hanya divalidasi dan tidak disimpan.</p>
+            <form id="form-sandi" novalidate>
+                <div class="field">
+                    <label for="s-lama">Kata sandi lama *</label>
+                    <input type="password" id="s-lama" autocomplete="current-password">
+                    <p class="field-error"></p>
+                </div>
+                <div class="field">
+                    <label for="s-baru">Kata sandi baru *</label>
+                    <input type="password" id="s-baru" autocomplete="new-password">
+                    <p class="field-help">Minimal 8 karakter, ada huruf dan angka.</p>
+                    <p class="field-error"></p>
+                </div>
+                <div class="field">
+                    <label for="s-ulang">Ulangi kata sandi baru *</label>
+                    <input type="password" id="s-ulang" autocomplete="new-password">
+                    <p class="field-error"></p>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-ghost" data-close>Batal</button>
+                    <button type="submit" class="btn" id="btn-simpan-sandi">Ubah Kata Sandi</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal WhatsApp -->
+    <div class="modal-overlay" id="modal-wa">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mw-judul">
+            <h2 id="mw-judul">Hubungkan ke WhatsApp</h2>
+            <p class="sub">Nomor WhatsApp bantuan untuk toko kamu, dengan awalan 62.</p>
+            <form id="form-wa" novalidate>
+                <div class="field">
+                    <label for="w-nomor">Nomor WhatsApp *</label>
+                    <input type="tel" id="w-nomor" inputmode="numeric" placeholder="6281234567890" autocomplete="tel">
+                    <p class="field-help">Contoh: 6281234567890 (tanpa +, spasi, atau tanda hubung).</p>
+                    <p class="field-error"></p>
+                </div>
+                <div class="modal-actions">
+                    <a class="btn btn-ghost" id="wa-link" href="#" target="_blank" rel="noopener noreferrer" style="margin-right:auto">Buka WhatsApp</a>
+                    <button type="button" class="btn btn-ghost" data-close>Batal</button>
+                    <button type="submit" class="btn" id="btn-simpan-wa">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/store.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/pengaturan.js"></script>
 </body>
 
 </html>

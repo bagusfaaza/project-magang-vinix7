@@ -4,164 +4,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riwayat Transaksi - Sistem Manajemen UMKM</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: sans-serif;
-        }
-
-        body {
-            display: flex;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        aside {
-            width: 240px;
-            background-color: #dcdcdc;
-            height: 100vh;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .sidebar-menu h2 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .sidebar-menu ul {
-            list-style: none;
-        }
-
-        .sidebar-menu li {
-            padding: 10px 12px;
-            margin-bottom: 8px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .sidebar-menu li.active {
-            background-color: #c0c0c0;
-            font-weight: bold;
-        }
-
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        header {
-            background-color: #e6e6e6;
-            padding: 15px 20px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .content {
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .card {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        th,
-        td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: left;
-            font-size: 14px;
-        }
-
-        th {
-            background-color: #eee;
-        }
-
-        .btn {
-            padding: 8px 15px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            text-decoration: none;
-            display: inline-block;
-        }
-    </style>
+    <meta name="description" content="Riwayat transaksi penjualan harian.">
+    <title>Riwayat Transaksi - StokKu</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-    <aside>
-        <div class="sidebar-menu">
-            <h2>UMKM System</h2>
-            <ul>
-                <li><a href="index.html" style="text-decoration:none; color:inherit;">Dashboard</a></li>
-                <li><a href="stok.html" style="text-decoration:none; color:inherit;">Data Stok</a></li>
-                <li><a href="analisis.html" style="text-decoration:none; color:inherit;">Analisis Stok</a></li>
-                <li class="active">Riwayat Transaksi</li>
-                <li><a href="pengaturan.html" style="text-decoration:none; color:inherit;">Pengaturan</a></li>
-            </ul>
-        </div>
-        <div>Admin UMKM</div>
-    </aside>
-    <main>
-        <header>
-            <h1>Riwayat Transaksi Penjualan</h1>
-        </header>
-        <div class="content">
-            <section class="card">
-                <h2>Daftar Transaksi Masuk</h2>
-                <p style="margin: 10px 0; color: #666; font-size: 13px;">Catatan pembelian pelanggan harian.</p>
-                <div style="margin-bottom: 15px;">
-                    <a href="tambah-transaksi.html" class="btn">+ Catat Transaksi Baru</a>
+<body data-page="transaksi">
+    <a class="sr-only" href="#konten">Lewati ke konten</a>
+    <div class="app">
+        <aside class="sidebar" id="sidebar"></aside>
+        <div class="main">
+            <header class="topbar" id="topbar"></header>
+            <main class="content" id="konten">
+                <div class="page-head" style="display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap">
+                    <div>
+                        <h1>Riwayat Transaksi</h1>
+                        <p>Catatan penjualan. Setiap transaksi otomatis mengurangi stok.</p>
+                    </div>
+                    <a class="btn" href="tambah_transaksi.html">+ Catat Transaksi Baru</a>
                 </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID Transaksi</th>
-                            <th>Tanggal</th>
-                            <th>Nama Pelanggan</th>
-                            <th>Total Bayar</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>TRX-001</td>
-                            <td>26-10-2026</td>
-                            <td>Budi Santoso</td>
-                            <td>Rp 50.000</td>
-                            <td>Lunas</td>
-                        </tr>
-                        <tr>
-                            <td>TRX-002</td>
-                            <td>26-10-2026</td>
-                            <td>Siti Aminah</td>
-                            <td>Rp 30.000</td>
-                            <td>Lunas</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
+
+                <section class="card" aria-labelledby="judul-daftar">
+                    <h2 id="judul-daftar">Daftar Transaksi</h2>
+                    <p class="sub" id="info-hasil" aria-live="polite">Memuat data...</p>
+
+                    <div class="table-toolbar">
+                        <div class="grow">
+                            <label class="sr-only" for="q">Cari ID atau nama pelanggan</label>
+                            <input type="search" id="q" placeholder="Cari ID atau nama pelanggan..." autocomplete="off">
+                        </div>
+                        <div>
+                            <label class="sr-only" for="status">Filter status</label>
+                            <select id="status">
+                                <option value="semua">Semua status</option>
+                                <option value="Lunas">Lunas</option>
+                                <option value="Belum Lunas">Belum Lunas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="tabel-area">
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Tanggal</th>
+                                        <th>Pelanggan</th>
+                                        <th>Item</th>
+                                        <th class="num">Total</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabel-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </main>
         </div>
-    </main>
+    </div>
+
+    <script src="js/store.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/transaksi.js"></script>
 </body>
 
 </html>
