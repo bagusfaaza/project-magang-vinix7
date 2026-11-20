@@ -1604,3 +1604,11 @@ tbody tr:hover td {
     .stat .value { font-size: 38px; }
     .nav a[aria-current="page"]::before { left: -14px; }
 }
+
+
+/* Sediakan ruang untuk ringkasan sebelum data selesai dimuat, supaya tabel di bawahnya tidak bergeser */
+.stats { min-height: 154px; }
+
+@media (max-width: 860px) {
+    .stats { min-height: 436px; }
+}
