@@ -88,7 +88,7 @@
             : '<div class="no-img" aria-hidden="true">' + UI.esc(p.nama.charAt(0).toUpperCase()) + "</div>";
         return '<article class="product-card">' +
             '<div class="thumb">' + img + '<span class="badge ' + s.cls + '">' + s.label + "</span></div>" +
-            '<div class="info"><h3>' + UI.esc(p.nama) + "</h3>" +
+            '<div class="info"><h2>' + UI.esc(p.nama) + "</h2>" +
             '<div class="meta"><span>' + UI.esc(p.kategori) + " &middot; " + UI.rupiah(p.harga) + "</span>" +
             "<span>Stok <strong>" + p.stok + "</strong></span></div></div>" +
             '<div class="actions"><button type="button" class="btn btn-ghost" data-edit="' + p.id + '">Edit Stok</button></div>' +

@@ -250,7 +250,7 @@ const UI = (() => {
         return (
             '<div class="state-box">' +
             '<div class="big" aria-hidden="true">' + (o.icon || "🔍") + "</div>" +
-            "<h3>" + esc(o.title) + "</h3>" +
+            "<h2>" + esc(o.title) + "</h2>" +
             "<p>" + esc(o.text) + "</p>" +
             (o.actionLabel
                 ? '<button type="button" class="btn" data-action="' + esc(o.action || "reset") + '">' + esc(o.actionLabel) + "</button>"
@@ -263,7 +263,7 @@ const UI = (() => {
         return (
             '<div class="state-box error" role="alert">' +
             '<div class="big" aria-hidden="true">⚠️</div>' +
-            "<h3>Gagal memuat data</h3>" +
+            "<h2>Gagal memuat data</h2>" +
             "<p>Sepertinya ada gangguan. Coba lagi sebentar.<br><small>" + esc(detail || "") + "</small></p>" +
             '<button type="button" class="btn" data-action="retry">Coba lagi</button></div>'
         );
