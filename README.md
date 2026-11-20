@@ -3,8 +3,8 @@
 Aplikasi web untuk mencatat stok dan penjualan UMKM secara real time.
 Dibuat dengan **HTML + CSS + JavaScript biasa** (tanpa build step), data dinamis dari JSON yang disimpan terstruktur di `localStorage`.
 
-> Link live web: **(isi setelah deploy, mis. https://nama-project.netlify.app)**
-> Link Figma Modul 5: **(isi link Figma)**
+> Link live web: https://projectmagang.netlify.app
+> Link Figma Modul 5: https://www.figma.com/design/VtXvbWrZ6BcHgppvXG4Rlb/Magang?node-id=2002-5&t=NA7BvFOtN0UYIQKY-1
 
 ## Fitur
 
