@@ -6,26 +6,29 @@
    ========================================================== */
 
 :root {
-    --bg: #f1f2f0;
+    --bg: #f2f4ef;
     --surface: #ffffff;
-    --surface-2: #f7f7f5;
-    --sidebar: #dfe2de;
-    --header: #eceeea;
-    --line: #d5d8d3;
-    --text: #1f2a24;
-    --muted: #66706a;
-    --accent: #2f7d5b;
-    --accent-dark: #25644a;
-    --accent-soft: #e0f0e8;
-    --danger: #c0392b;
-    --danger-soft: #fbe9e6;
-    --warn: #b7791f;
-    --warn-soft: #fdf0d8;
-    --ok: #2f7d5b;
-    --radius: 10px;
-    --shadow: 0 1px 2px rgba(20, 30, 25, .06), 0 4px 14px rgba(20, 30, 25, .05);
-    --sidebar-w: 248px;
-    --header-h: 60px;
+    --surface-2: #f6f7f2;
+    --sidebar: #123226;
+    --header: transparent;
+    --line: #dde2d6;
+    --text: #17231c;
+    --muted: #5b685f;
+    --accent: #1f5a42;
+    --accent-dark: #164532;
+    --accent-soft: #e2eee5;
+    --kunyit: #f2b53a;
+    --kunyit-soft: #fcefcb;
+    --danger: #b3382b;
+    --danger-soft: #fbe8e4;
+    --warn: #7a4f00;
+    --warn-soft: #fcefcb;
+    --ok: #1f5a42;
+    --radius: 8px;
+    --shadow: none;
+    --sidebar-w: 256px;
+    --header-h: 64px;
+    --font-display: "Bricolage Grotesque", system-ui, "Segoe UI", sans-serif;
 }
 
 * {
@@ -1194,4 +1197,410 @@ th.num {
         gap: 8px;
         padding: 10px;
     }
+}
+
+
+/* ==========================================================
+   Tema warung: hijau daun pandan + kuning kunyit
+   ========================================================== */
+body {
+    font-family: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 15px;
+}
+
+h1, h2, h3, .stat .value, .wm-name, .brand {
+    font-family: var(--font-display);
+}
+
+:focus-visible {
+    outline: 3px solid var(--kunyit);
+    outline-offset: 2px;
+}
+
+/* Sidebar */
+.sidebar {
+    border-right: 0;
+    padding: 24px 14px;
+    color: #dbe7de;
+}
+
+.wordmark {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 4px 10px 22px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+    text-decoration: none;
+    color: #fff;
+}
+
+.wm-mark {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    border-radius: 9px 9px 9px 2px;
+    background: var(--kunyit);
+    position: relative;
+}
+
+.wm-mark::before,
+.wm-mark::after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    height: 3px;
+    border-radius: 2px;
+    background: #123226;
+}
+
+.wm-mark::before { top: 11px; }
+.wm-mark::after { top: 19px; right: 14px; }
+
+.wm-name {
+    display: block;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -.01em;
+}
+
+.wm-sub {
+    display: block;
+    font-size: 12px;
+    color: #9db5a5;
+    margin-top: 4px;
+}
+
+.nav {
+    gap: 2px;
+}
+
+.nav a {
+    background: transparent;
+    border: 0;
+    border-radius: 8px;
+    color: #dbe7de;
+    font-weight: 500;
+    padding: 10px 12px;
+    position: relative;
+}
+
+.nav a:hover {
+    background: rgba(255, 255, 255, .07);
+    border: 0;
+}
+
+.nav a[aria-current="page"] {
+    background: rgba(255, 255, 255, .1);
+    color: #fff;
+    font-weight: 700;
+}
+
+.nav a[aria-current="page"]::before {
+    content: "";
+    position: absolute;
+    left: -14px;
+    top: 9px;
+    bottom: 9px;
+    width: 4px;
+    border-radius: 0 4px 4px 0;
+    background: var(--kunyit);
+}
+
+.nav .ico,
+.nav a[aria-current="page"] .ico {
+    background: transparent;
+    width: 24px;
+    height: 24px;
+    color: #9db5a5;
+}
+
+.nav a[aria-current="page"] .ico {
+    color: var(--kunyit);
+}
+
+.admin-box {
+    background: rgba(255, 255, 255, .07);
+    border: 0;
+    color: #fff;
+}
+
+.avatar {
+    background: var(--kunyit);
+    color: #123226;
+}
+
+/* Topbar */
+.topbar {
+    background: var(--bg);
+    border-bottom: 0;
+    padding: 0 28px;
+}
+
+.icon-btn {
+    border-radius: 8px;
+}
+
+.brand {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.search-box input {
+    border-radius: 8px;
+    border-color: #cfd6c7;
+}
+
+.search-box input:focus {
+    border-color: var(--accent);
+    outline: 3px solid var(--kunyit-soft);
+}
+
+/* Konten */
+.content {
+    padding: 8px 28px 40px;
+}
+
+.page-head {
+    margin-bottom: 22px;
+}
+
+.page-head h1 {
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -.02em;
+    line-height: 1.1;
+}
+
+.page-head p {
+    font-size: 15px;
+    margin-top: 6px;
+}
+
+.card {
+    border-radius: var(--radius);
+    padding: 22px;
+}
+
+.card h2 {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -.01em;
+}
+
+.btn {
+    border-radius: 8px;
+    min-height: 42px;
+    font-weight: 700;
+}
+
+.btn:hover { background: var(--accent-dark); }
+
+.btn-ghost {
+    background: transparent;
+    border-color: #bfc7b6;
+}
+
+.btn-ghost:hover { background: var(--surface); }
+
+.badge {
+    border-radius: 6px;
+    padding: 3px 9px;
+}
+
+.badge-ok { background: var(--accent-soft); }
+
+/* Ringkasan dashboard: satu panel, tiga kolom */
+.stats {
+    gap: 0;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.stat {
+    border: 0;
+    border-radius: 0;
+    padding: 22px 26px;
+    background: transparent;
+}
+
+.stat + .stat {
+    border-left: 1px solid var(--line);
+}
+
+.stat:first-child {
+    background: var(--kunyit-soft);
+}
+
+.stat .label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.stat .value {
+    font-size: 46px;
+    font-weight: 800;
+    letter-spacing: -.03em;
+    margin-top: 8px;
+}
+
+.stat .hint {
+    font-size: 13.5px;
+    margin-top: 8px;
+}
+
+.stat:first-child .hint {
+    color: var(--warn);
+    font-weight: 600;
+}
+
+/* Tabel: lebih lega, tanpa huruf kapital */
+.table-wrap {
+    border: 0;
+    border-radius: 0;
+}
+
+th {
+    background: transparent;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    border-bottom: 2px solid var(--text);
+    padding: 10px 14px;
+}
+
+td {
+    padding: 14px;
+}
+
+tbody tr:hover td {
+    background: var(--surface-2);
+}
+
+/* Filter + kartu produk */
+.filter-panel {
+    border-radius: var(--radius);
+}
+
+.filter-group legend {
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 13px;
+    color: var(--text);
+}
+
+.product-card {
+    border-radius: var(--radius);
+    transition: border-color .15s;
+}
+
+.product-card:hover {
+    border-color: var(--accent);
+}
+
+.product-card .thumb {
+    background: #e6e9e0;
+}
+
+.product-card .info {
+    padding: 14px 16px 4px;
+}
+
+.product-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -.01em;
+}
+
+.product-card .meta strong {
+    font-size: 15px;
+}
+
+.product-card .actions {
+    padding: 12px 16px 16px;
+}
+
+/* Status kosong / error: berbasis teks, tanpa emoji */
+.state-box {
+    border: 1px dashed #b4bdab;
+    border-radius: var(--radius);
+}
+
+.state-box .big {
+    display: none;
+}
+
+.state-box h3 {
+    font-size: 19px;
+}
+
+.state-box.error {
+    border-color: #e0aaa2;
+}
+
+/* Form, modal, toast */
+.field label {
+    font-weight: 700;
+}
+
+.field input,
+.field select,
+.field textarea,
+.table-toolbar input,
+.table-toolbar select {
+    border-radius: 8px;
+    border-color: #bcc4b3;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    border-color: var(--accent);
+    outline: 3px solid var(--kunyit-soft);
+}
+
+.modal {
+    border-radius: 12px;
+}
+
+.modal h2 {
+    font-size: 21px;
+}
+
+.toast {
+    background: #123226;
+    border-left-color: var(--kunyit);
+    border-radius: 8px;
+}
+
+.setting-item {
+    border-radius: 8px;
+    background: var(--surface);
+}
+
+.setting-item:hover { background: var(--surface-2); }
+
+.bar-fill { background: var(--accent); }
+.bar-track { background: #e4e8dd; }
+
+.low-list li {
+    border-radius: 8px;
+}
+
+@media (max-width: 860px) {
+    .topbar { padding: 0 14px; }
+    .content { padding: 4px 16px 32px; }
+    .page-head h1 { font-size: 28px; }
+    .stat + .stat { border-left: 0; border-top: 1px solid var(--line); }
+    .stat .value { font-size: 38px; }
+    .nav a[aria-current="page"]::before { left: -14px; }
 }
