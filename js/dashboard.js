@@ -25,9 +25,9 @@
         const totalUnit = produk.reduce((sum, p) => sum + p.stok, 0);
         const menipis = produk.filter((p) => p.stok <= p.stokMinimum).length;
         const cards = [
-            ["Total Produk", produk.length, menipis + " produk perlu diisi ulang"],
-            ["Jumlah Produk", totalUnit.toLocaleString("id-ID"), "Total unit di semua stok"],
-            ["Jumlah Transaksi", transaksi.length, "Tercatat sejak awal"],
+            ["Jenis produk", produk.length, menipis ? menipis + " hampir habis, perlu diisi ulang" : "Semua stok aman"],
+            ["Total unit di rak", totalUnit.toLocaleString("id-ID"), "Gabungan semua produk"],
+            ["Transaksi tercatat", transaksi.length, "Sejak data awal dimuat"],
         ];
         statsEl.innerHTML = cards.map((c) => statCard(c[0], c[1], c[2])).join("");
     }

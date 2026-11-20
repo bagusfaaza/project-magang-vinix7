@@ -8,11 +8,11 @@ const APP_NAME = "StokKu";
 
 /* Menu ditulis SATU kali di sini, lalu di-render ke semua halaman. */
 const NAV = [
-    { key: "dashboard", label: "Dashboard", href: "index.html", icon: "🏠" },
-    { key: "stok", label: "Data Stok", href: "stok.html", icon: "📦" },
-    { key: "analisis", label: "Analisis Stok", href: "analisis_stok.html", icon: "📊" },
-    { key: "transaksi", label: "Riwayat Transaksi", href: "transaksi.html", icon: "🧾" },
-    { key: "pengaturan", label: "Pengaturan", href: "pengaturan.html", icon: "⚙️" },
+    { key: "dashboard", label: "Dashboard", href: "index.html", icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg>' },
+    { key: "stok", label: "Data Stok", href: "stok.html", icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8 12 4l8.5 4v8L12 20l-8.5-4z"/><path d="M3.5 8 12 12l8.5-4M12 12v8"/></svg>' },
+    { key: "analisis", label: "Analisis Stok", href: "analisis_stok.html", icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>' },
+    { key: "transaksi", label: "Riwayat Transaksi", href: "transaksi.html", icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg>' },
+    { key: "pengaturan", label: "Pengaturan", href: "pengaturan.html", icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M18.4 5.6l-1.8 1.8M7.4 16.6l-1.8 1.8"/></svg>' },
 ];
 
 const UI = (() => {
@@ -74,7 +74,7 @@ const UI = (() => {
 
         sidebar.innerHTML =
             '<div>' +
-            '<p class="sidebar-title">' + esc(current ? current.label : APP_NAME) + "</p>" +
+            '<a class="wordmark" href="index.html" aria-label="StokKu, ke Dashboard"><span class="wm-mark" aria-hidden="true"></span><span><span class="wm-name">' + esc(APP_NAME) + '</span><span class="wm-sub">Stok warung dan toko</span></span></a>' +
             '<nav aria-label="Menu utama"><ul class="nav">' +
             NAV.map((n) =>
                 '<li><a href="' + n.href + '"' + (n.key === page ? ' aria-current="page"' : "") + ">" +
@@ -91,7 +91,7 @@ const UI = (() => {
                 '<div class="search-box">' +
                 '<label class="sr-only" for="cari">Cari produk</label>' +
                 '<input type="search" id="cari" placeholder="Cari produk..." autocomplete="off">' +
-                '<span class="search-ico" aria-hidden="true">🔍</span></div>';
+                '<span class="search-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></span></div>';
         }
         if (opts.importBtn) {
             extras +=
@@ -100,9 +100,8 @@ const UI = (() => {
         }
 
         topbar.innerHTML =
-            '<button type="button" class="icon-btn" id="btn-menu" aria-label="Buka atau tutup menu" aria-controls="sidebar" aria-expanded="false">&#9776;</button>' +
-            '<a class="icon-btn" href="index.html" aria-label="Ke Dashboard">&#8962;</a>' +
-            '<span class="brand">' + esc(APP_NAME) + "</span>" +
+            '<button type="button" class="icon-btn" id="btn-menu" aria-label="Buka atau tutup menu" aria-controls="sidebar" aria-expanded="false"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>' +
+            '<span class="brand">' + esc(current ? current.label : APP_NAME) + "</span>" +
             '<span class="topbar-spacer"></span>' + extras;
 
         document.title = (current ? current.label + " - " : "") + APP_NAME;
@@ -266,7 +265,7 @@ const UI = (() => {
             '<div class="big" aria-hidden="true">⚠️</div>' +
             "<h3>Gagal memuat data</h3>" +
             "<p>Sepertinya ada gangguan. Coba lagi sebentar.<br><small>" + esc(detail || "") + "</small></p>" +
-            '<button type="button" class="btn" data-action="retry">Coba lagi ↻</button></div>'
+            '<button type="button" class="btn" data-action="retry">Coba lagi</button></div>'
         );
     }
 
