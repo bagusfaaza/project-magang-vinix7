@@ -11,6 +11,7 @@ const NAV = [
     { key: "dashboard", label: "Dashboard", href: "index.html", icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg>' },
     { key: "stok", label: "Data Stok", href: "stok.html", icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8 12 4l8.5 4v8L12 20l-8.5-4z"/><path d="M3.5 8 12 12l8.5-4M12 12v8"/></svg>' },
     { key: "analisis", label: "Analisis Stok", href: "analisis_stok.html", icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>' },
+    { key: "catat", label: "Catat Transaksi", href: "tambah_transaksi.html", icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v8M8 12h8"/></svg>' },
     { key: "transaksi", label: "Riwayat Transaksi", href: "transaksi.html", icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg>' },
     { key: "pengaturan", label: "Pengaturan", href: "pengaturan.html", icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M18.4 5.6l-1.8 1.8M7.4 16.6l-1.8 1.8"/></svg>' },
 ];
@@ -103,6 +104,16 @@ const UI = (() => {
             '<button type="button" class="icon-btn" id="btn-menu" aria-label="Buka atau tutup menu" aria-controls="sidebar" aria-expanded="false"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>' +
             '<span class="brand">' + esc(current ? current.label : APP_NAME) + "</span>" +
             '<span class="topbar-spacer"></span>' + extras;
+
+        // Tombol cepat "Catat Transaksi" yang selalu terlihat di layar kecil
+        if (page !== "catat" && !document.getElementById("fab-catat")) {
+            const fab = document.createElement("a");
+            fab.id = "fab-catat";
+            fab.className = "fab";
+            fab.href = "tambah_transaksi.html";
+            fab.innerHTML = '<span aria-hidden="true">+</span> Catat transaksi';
+            document.body.appendChild(fab);
+        }
 
         document.title = (current ? current.label + " - " : "") + APP_NAME;
         setupMenuToggle();

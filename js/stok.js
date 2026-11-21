@@ -91,7 +91,7 @@
             '<div class="info"><h2>' + UI.esc(p.nama) + "</h2>" +
             '<div class="meta"><span>' + UI.esc(p.kategori) + " &middot; " + UI.rupiah(p.harga) + "</span>" +
             "<span>Stok <strong>" + p.stok + "</strong></span></div></div>" +
-            '<div class="actions"><button type="button" class="btn btn-ghost" data-edit="' + p.id + '">Edit Stok</button></div>' +
+            '<div class="actions"><button type="button" class="btn btn-edit" data-edit="' + p.id + '">Ubah stok</button></div>' +
             "</article>";
     }
 
@@ -112,6 +112,7 @@
 
         const list = applyFilters();
         resultInfo.textContent = "Menampilkan " + list.length + " dari " + produk.length + " produk";
+        updateChips();
 
         if (!list.length) {
             grid.innerHTML = UI.emptyState({
@@ -152,6 +153,26 @@
             resultInfo.textContent = "";
         }
     }
+
+    /* Filter cepat status (di luar panel filter, selalu terlihat) */
+    const quick = document.getElementById("quick-status");
+    function updateChips() {
+        const n = { menipis: 0, habis: 0 };
+        produk.forEach((p) => { const k = UI.stokStatus(p).key; if (n[k] !== undefined) n[k]++; });
+        quick.querySelectorAll("[data-status]").forEach((b) => {
+            const v = b.dataset.status;
+            b.setAttribute("aria-pressed", String(filters.status === v));
+            const c = b.querySelector(".chip-n");
+            if (c) c.textContent = v === "semua" ? produk.length : n[v];
+        });
+    }
+    quick.addEventListener("click", (e) => {
+        const b = e.target.closest("[data-status]");
+        if (!b) return;
+        filters.status = b.dataset.status;
+        renderFilters();
+        render();
+    });
 
     function resetFilters() {
         filters.q = "";
